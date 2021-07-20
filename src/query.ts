@@ -287,7 +287,7 @@ export function completeOrderly(
 ): string {
   if (!orderly.length) {
     throw new Error(QueryError.INVALID_ORDERLY);
-  } else if (new RegExp(/^.[^.]+\..[^.]+$/g).test(orderly)) {
+  } else if (new RegExp(/^.[^.]+\.([^.]+\.)?.[^.]+$/g).test(orderly)) {
     // text before and after a full stop (e.g. campaign.resource_name)
     return orderly;
   } else if (new RegExp(/^.[^.]+$/g).test(orderly)) {
